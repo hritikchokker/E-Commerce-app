@@ -1,0 +1,113 @@
+.main-products {
+
+  margin: auto;
+  top: 0;
+}
+
+.main-products-header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 9999;
+
+}
+
+.main-products-filter-productslist {
+  display: flex;
+  flex-direction: column;
+}
+
+.main-products-searchName {
+
+  text-align: center;
+  z-index: 12;
+  margin: auto;
+  margin-top: 5rem;
+  width: 70%;
+
+  .main-products-searchName-input {
+    width: inherit;
+    text-align: inherit;
+    // font-size: 1.5rem;
+    padding: 15px;
+
+
+  }
+}
+
+.main-products-list {
+  width: 75%;
+  float: right;
+  height: auto;
+  margin: auto;
+  background-color: whitesmoke;
+  text-align: center;
+  display: grid;
+  grid-template-columns: auto auto auto;
+  grid-gap: 15px;
+  grid-template-columns: repeat(3, 1fr);
+  // background-color: #2196F3;
+  padding: 10px;
+
+  .main-products-list-grid {
+    // background-color: rgba(255, 255, 255, 0.8);
+    text-align: center;
+    padding: 20px 0;
+    font-size: 30px;
+  }
+
+
+}
+
+.main-products-filter {
+  // display: flex;
+  // flex-direction: column-reverse;
+  position: fixed;
+  width: 20%;
+  background-color: whitesmoke;
+  float: left;
+  height: 90vh;
+  margin-left: 2rem;
+
+}
+
+.main-products-colorName {
+  text-align: center;
+  margin-left: 2.5rem;
+  width: 80%;
+  // display: inline;
+}
+
+
+
+
+.main-products-brands {
+  text-align: center;
+  margin-left: 2.5rem;
+  width: 80%;
+
+}
+
+.main-product-rangeSlider {
+  display: block;
+  width: 14rem;
+  margin-left: 2.5rem;
+
+}
+
+.main-product-applyReset {
+  margin-left: 3rem;
+  text-align: center;
+}
+
+.main-products-priceOption {
+  margin-top: 2rem;
+  text-align: center;
+  margin-left: 2rem;
+  // border: 3px solid rgb(73, 67, 67);
+  // border-radius: 1.5rem;
+
+}
+
+
+/* Remove extra left and right margins, due to padding */

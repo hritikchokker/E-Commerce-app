@@ -1,0 +1,64 @@
+<div class="main-products">
+  <div class="main-products-header">
+    <app-header></app-header>
+  </div>
+  <div class="main-products-searchName">
+    <mat-form-field class="main-products-searchName-input">
+      <input matInput placeholder="Search Product By Name" [(ngModel)]="searchfilter" autocomplete="off">
+      <span style="transition: .3sec;" *ngIf="searchfilter.length > 0" (click)="clearSearchName()">
+        <mat-icon style="right: 0;position: absolute; font-size: 10dp; transition: .5s;">clear</mat-icon>
+      </span>
+    </mat-form-field>
+  </div>
+  <div class="main-products-filter-product">
+    <div class="main-products-filter">
+      <h4
+        style="text-align: center; font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;">
+        Filters</h4>
+      <form [formGroup]="filterForm">
+        <mat-form-field class="main-products-colorName">
+          <mat-label>Colors</mat-label>
+          <mat-select formControlName="colorFilter" multiple>
+            <mat-option *ngFor="let colors of colorOptions" [value]="colors">{{colors}}</mat-option>
+          </mat-select>
+        </mat-form-field>
+        <mat-form-field class="main-products-brands">
+          <mat-label>Brands</mat-label>
+          <mat-select formControlName="brandFilter" multiple>
+            <mat-option *ngFor="let brands of options" [value]="brands">{{brands}}</mat-option>
+          </mat-select>
+        </mat-form-field>
+        <mat-hint style="margin-left: 6rem; text-align: center;">Price Range</mat-hint>
+        <mat-slider class="main-product-rangeSlider" thumbLabel [displayWith]="formatLabel" [max]="maxPrice"
+          [(value)]="value" [min]="minPrice" formControlName="rangeFilter">
+        </mat-slider>
+        <span class="main-product-applyReset">
+          <button mat-flat-button (click)="setAll()" color="primary">Apply</button>
+          &nbsp; &nbsp;
+          <button [disabled]="resetToggle" mat-flat-button (click)="resetAll()" color="accent">reset</button>
+        </span>
+      </form>
+      <div>
+        <mat-hint style="margin-left: 10px;">Sort By</mat-hint>
+        <mat-form-field class="main-products-priceOption">
+          <mat-label>Select an option</mat-label>
+          <mat-select [(value)]="selected">
+            <mat-option>None</mat-option>
+            <mat-option value="option1">Price Low To High</mat-option>
+            <mat-option value="option2">Price High To Low</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+    </div>
+    <div class="main-products-list">
+      <div class="main-products-list-grid"
+        *ngFor="let product of productsArr |filter: formValue | selectpipe: selected | search: searchfilter">
+        <app-add-products [childProductArr]="product">
+        </app-add-products>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- | search: searchfilter| selectpipe: selected -->

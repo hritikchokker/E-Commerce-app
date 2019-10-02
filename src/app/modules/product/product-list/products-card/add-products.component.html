@@ -1,0 +1,25 @@
+<div class="column" [hidden]="!childProductArr.name">
+  <mat-card class="card" [routerLink]="['/product/product-detail',childProductArr.id]">
+    <img mat-card-image src="{{childProductArr.image | defaultimage}}" style="height: 200px;"
+      alt="{{childProductArr.name}}">
+    <mat-card-header>
+      <mat-card-title>Name:{{childProductArr.name}}</mat-card-title>
+      <mat-card-subtitle>Brand Name:{{childProductArr.brand}}</mat-card-subtitle>
+    </mat-card-header>
+
+    <mat-card-content>
+      <p>Color:
+        {{childProductArr.color}}</p>
+      <h4>Price:
+        {{childProductArr.price | currency: "₹":"₹"}}</h4>
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-flat-button color="primary" class="product-card-button"
+        (click)="addToCart($event,childProductArr)">Add to cart</button>
+    </mat-card-actions>
+  </mat-card>
+
+</div>
+<div [hidden]="childProductArr.name">
+  <h1 style="height: 70vh; width: 70vw;"> No Product Found</h1>
+</div>

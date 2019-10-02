@@ -1,0 +1,42 @@
+<div class="top-card-login">
+  <mat-card class="login-card">
+
+    <form class="example-container" [formGroup]="loginForm">
+      <h2 class="card-head-heading">Sign In</h2>
+      <mat-form-field appearance="outline">
+        <mat-label>Enter Your Email</mat-label>
+        <input type="email" formControlName="email" matInput placeholder="Email" required>
+        <mat-icon class="mat-icon">email</mat-icon>
+        <!-- <mat-hint>email</mat-hint> -->
+        <mat-error *ngIf="email.getError('pattern')">
+          Email Is Invalid
+        </mat-error>
+        <mat-error *ngIf="email.getError('required')">
+          Email is required
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Enter Your Password</mat-label>
+        <input type="password" formControlName="password" matInput placeholder="password"
+          [type]="hide ? 'password' : 'text'">
+        <button mat-icon-button type="button" matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
+          [attr.aria-pressed]="hide">
+          <mat-icon class="mat-icon-password">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+        </button>
+        <mat-error *ngIf="password.getError('required')">
+          password is required
+        </mat-error>
+        <!-- <mat-error *ngIf="password.getError('minlength')">
+          your password is too sort
+        </mat-error>
+        <mat-error *ngIf="password.getError('pattern')">
+          your password must contains special charactor and number
+        </mat-error> -->
+      </mat-form-field>
+      <button type="submit" mat-flat-button (click)="getUserFromService()" [disabled]="!loginForm.valid" mat-button
+        color="primary">Login</button>
+      <h6 class="card-signup">Don't Have an Account ?</h6>
+      <h5 class="card-signup" routerLink="/signup">SignUp</h5>
+    </form>
+  </mat-card>
+</div>

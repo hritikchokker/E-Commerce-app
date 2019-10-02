@@ -1,0 +1,41 @@
+<app-header></app-header>
+<div *ngIf="singleProduct" class="column">
+  <mat-card class="card">
+    <img mat-card-image src="{{singleProduct.image | defaultimage}}" style="height: 250px; width: 500px;" alt="">
+    <mat-card-header style="margin-left: 550px;">
+      <mat-card-title>Name: {{singleProduct.name}}</mat-card-title>
+      <mat-card-subtitle>Brand Name: {{singleProduct.brand}}</mat-card-subtitle>
+    </mat-card-header>
+
+    <mat-card-content>
+      <p>Color:
+        {{singleProduct.color}}</p>
+      <h4>Price:
+        {{singleProduct.price | currency: "₹":"₹"}}</h4>
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-flat-button color="primary" class="product-card-button" (click)="addToCart(singleProduct)">Add to
+        cart</button>
+      <!-- (click)="addToCart($event,childProductArr)" -->
+    </mat-card-actions>
+  </mat-card>
+</div>
+<!-- <h1 *ngIf="(productArr.length === 1)" style="text-align: center;">User Who Buys this are also interested in these
+  products
+</h1>
+<h1 *ngIf="(productArr.length === -1)">No Comparable Product Found</h1> -->
+<div class="recommended-products">
+  <app-add-products *ngFor="let prod of productArr | recommended: priceRange" [childProductArr]="prod" class="mainGrid">
+  </app-add-products>
+</div>
+
+
+
+
+<!-- <div *ngFor="let prod of productArr | recommended: priceRange">
+
+  <h3>{{prod.name}}</h3>
+  <h3>{{prod.brand}}</h3>
+  <h4>{{prod.price}}</h4>
+  <img style="height: 50px;" src="{{prod.image}}" alt="{{prod.name}}">
+</div> -->

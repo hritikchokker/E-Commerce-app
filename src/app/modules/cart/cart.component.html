@@ -1,0 +1,75 @@
+<app-header></app-header>
+
+<div *ngIf="oneProduct.length">
+  <h1 style="text-align: center;">Cart Details</h1>
+  <mat-card class="cart-card">
+    <table class="cart-table">
+      <!-- <h2>Cart Details</h2> -->
+      <th style="width: 50%; text-align: center;">Product</th>
+      <th>Quantity</th>
+      <th>Price</th>
+      <tr *ngFor="let prod of oneProduct; let i=index">
+        <td><img [routerLink]="['/product/product-detail',prod.id]" class="avatar-image" src="{{prod.image}}"
+            alt="{{prod.image}}">
+          <span [routerLink]="['/product/product-detail',prod.id]" class="cart-product-name">{{prod.name}}</span>
+        </td>
+        <td>
+          <span style="display: inline;">
+
+            <button mat-icon-button (click)="addProductQuantity(prod.id)">
+              <mat-icon matTooltip="add quantity"> add_circle </mat-icon>
+            </button>
+            <span> {{prod.quantity}} </span>
+            <button *ngIf="prod.quantity > 1" mat-icon-button (click)="removeProductQuantity(i,prod.id)">
+              <mat-icon matTooltip="decrease quantity"> remove_circle</mat-icon>
+            </button>
+            <button *ngIf="prod.quantity <=1" mat-icon-button (click)="removeProductQuantity(i,prod.id)">
+              <mat-icon matTooltip="decrease quantity">delete</mat-icon>
+            </button>
+          </span>
+        </td>
+        <td>
+          <h4>{{prod.price | currency: currencySymbol }}</h4>
+        </td>
+      </tr>
+    </table>
+    <h1 style="float: right;">Your Total Is: {{_cartservice.total | currency: currencySymbol }}</h1>
+
+  </mat-card>
+  <div class="checkout-button">
+    <button matTooltip="place Order" class="checkout-button-element" (click)="checkOut()" mat-raised-button
+      color="accent">CheckOut</button>
+  </div>
+</div>
+<div class="cart-empty" *ngIf="!oneProduct.length">
+  <img style="margin-left: 500px; margin-top: 40px; border-radius: 8px;"
+    src="https://cdn.dribbble.com/users/1244867/screenshots/4346888/empty_cart_1x.jpg" alt="">
+  <h1 style="text-align: center;">Cart Is Empty</h1>
+  <button style="margin-left: 630px;" mat-raised-button color="accent" routerLink="/product/product-list">Go To Products
+    Section</button>
+</div>
+
+
+
+
+
+
+
+<!-- <div *ngIf="!oneProduct">Cart is empty</div>
+<div *ngIf="oneProduct">
+  <div >
+    <h4>{{prod.brand}}</h4>
+    <h4>{{prod.name}}</h4>
+    <h4>{{prod.price}}</h4>
+    <h4>{{prod.id}}</h4>
+    <span style="display: inline;">
+      <button (click)="addProductQuantity(prod.id)"> + </button>
+      <span> {{prod.quantity}} </span>
+      <button (click)="removeProductQuantity(i,prod.id)"> -</button>
+    </span>
+    <img src="{{prod.image}}" style="height: 200px;" alt="">
+
+
+  </div>
+  <h3> your total is {{_cartservice.total | currency}}</h3>
+</div> -->

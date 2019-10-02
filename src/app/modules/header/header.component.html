@@ -1,0 +1,24 @@
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav-content class="flex-container">
+    <mat-toolbar color="primary">
+      <span [routerLink]="['/product/product-list']" class="hover-class">E-kart</span>
+      <span class="header-cart" matBadge={{countCard}} matBadgeColor="warn" [matBadgeHidden]="countCard <= 0 "
+        (click)='goToCart()'>
+        <mat-icon>shopping_cart</mat-icon>
+      </span>
+      <span class="hover-class" routerLink="/product/product-list">Products</span>
+      <span class="hover-class" routerLink="/order">Orders</span>
+      <div class="logout">
+        <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+          <mat-icon class="margin-left">more_vert</mat-icon>
+        </button>
+        <mat-menu #menu="matMenu">
+          <button mat-menu-item (click)="logOut()">Logout</button>
+        </mat-menu>
+      </div>
+
+    </mat-toolbar>
+    <!-- Add Content Here -->
+  </mat-sidenav-content>
+
+</mat-sidenav-container>

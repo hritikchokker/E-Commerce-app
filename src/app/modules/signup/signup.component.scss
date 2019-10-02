@@ -1,0 +1,75 @@
+.example-container {
+  display: flex;
+  flex-direction: column;
+  // width: auto;
+  // background-image: linear-gradient(120deg, #fdfbfb 0%, #ebedee 100%);
+}
+
+.card-head-heading {
+  text-align: center;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+
+}
+
+.top-card-signup {
+
+  // margin: auto;
+  height: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  // height: auto;
+}
+
+// .main-div {}
+
+.card-head {
+
+  width: 40vw;
+  margin-top: 3rem;
+  margin-bottom: 5.3rem;
+  // margin: auto;
+  height: auto;
+  border-radius: 3rem;
+  background: #EAEAEA;
+  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #EAEAEA, #EAEAEA, #F2F2F2, #EAEAEA);
+  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #EAEAEA, #EAEAEA, #F2F2F2, #EAEAEA);
+  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+}
+
+h5:hover {
+  background: #f12711;
+  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #f5af19, #f12711);
+  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #f5af19, #f12711);
+  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+}
+
+.example-container>* {
+  width: 30vw;
+  margin: auto;
+  margin-top: 2rem;
+  border-radius: 4rem;
+}
+
+.mat-icon {
+  position: absolute;
+  right: 0;
+}
+
+.card-login {
+  text-align: center;
+  text-decoration: none;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  color: #6666ff;
+  font-size: 1.4rem;
+}
+
+// .mat-icon-password {
+//   display: contents;
+// }

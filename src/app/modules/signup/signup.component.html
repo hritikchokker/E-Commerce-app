@@ -1,0 +1,69 @@
+<div class="top-card-signup">
+  <mat-card class="card-head">
+    <form class="example-container" [formGroup]="profileForm">
+      <h2 class="card-head-heading">Create a New Account</h2>
+      <mat-form-field appearance="outline">
+        <mat-label>Enter Your Name*</mat-label>
+        <input matInput minlength="3" formControlName="name" id="name" placeholder="Name">
+        <mat-icon class="mat-icon">person</mat-icon>
+        <mat-error *ngIf="name.getError('minlength')">
+          name should be atleast 3 character long
+        </mat-error>
+        <mat-error *ngIf="name.getError('required')">
+          name is required
+        </mat-error>
+        <mat-error *ngIf="name.getError('pattern')">
+          please enter a valid name
+        </mat-error>
+        <!-- <mat-error *ngIf="profileForm.get('name').errors">
+      Name Is Required
+     </mat-error> -->
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Enter Your Email*</mat-label>
+        <input type="email" formControlName="email" matInput placeholder="Email">
+        <mat-icon class="mat-icon">email</mat-icon>
+        <mat-error *ngIf="email.getError('required')">
+          Email is required
+        </mat-error>
+        <mat-error *ngIf="email.getError('pattern')">
+          Email is not right
+        </mat-error>
+        <!-- <mat-error *ngIf="email.getError('Exists')">
+          This Email Already Exists please login
+        </mat-error> -->
+
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Date*</mat-label>
+        <input matInput [matDatepicker]="picker" [max]="maxDate" formControlName="date" placeholder="Choose a date">
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+        <mat-error *ngIf="date.getError('required')">
+          Date Is Required
+        </mat-error>
+        <mat-error *ngIf="profileForm.get('date').errors">Date Format is Invalid</mat-error>
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Enter Your Password*</mat-label>
+        <input type="password" formControlName="password" matInput placeholder="password"
+          [type]="hide ? 'password' : 'text'">
+        <button mat-icon-button type="button" matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
+          [attr.aria-pressed]="hide">
+          <mat-icon class="mat-icon-password">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+        </button>
+        <mat-error *ngIf="password.getError('required')">
+          password is required
+        </mat-error>
+
+        <mat-error *ngIf="password.getError('pattern')">
+          your password must contains special charactor and number
+        </mat-error>
+      </mat-form-field>
+      <button type="submit" (click)="addToStorage()" mat-flat-button color="primary" [disabled]="!profileForm.valid"
+        mat-button color="accent">Submit</button>
+      <h5 class="card-login" routerLink="/login"> Already Have an Account ?</h5>
+    </form>
+  </mat-card>
+</div>

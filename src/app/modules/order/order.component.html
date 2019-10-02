@@ -1,0 +1,54 @@
+<app-header></app-header>
+<!-- <div class="empty-cart" *ngIf="!showOrder">
+  <img src="https://icon-library.net/images/orders-icon/orders-icon-13.jpg" height=400 width=500 text-align="center">
+  <p style="font-family:georgia,garamond,serif;font-size:25px;font-style:italic;">
+    No orders yet</p>
+  <button mat-raised-button color="warn" [routerLink]="['/cart']">Goto Cart</button>
+
+</div> -->
+<div *ngIf="toggle">
+
+  <h1 style="text-align: center;">Order Details</h1>
+  <mat-card class="cart-card">
+    <div *ngFor="let orders of newOrder">
+
+
+
+      <table class="cart-table">
+        <!-- <h2>Cart Details</h2> -->
+        <th style="width: 50%; text-align: center;">Product</th>
+        <th>Quantity</th>
+        <th>Price</th>
+        <tr *ngFor="let order of orders.cartDetail.products">
+
+          <td><img class="avatar-image" src="{{order.image | defaultimage}}" alt="{{order.image}}">
+            <span class="cart-product-name">{{order.name}}</span>
+          </td>
+          <td>
+            {{order.quantity}}
+          </td>
+          <td>
+            <h4>{{order.quantity*order.price | currency:currencySymbol}}</h4>
+          </td>
+
+
+
+        </tr>
+      </table>
+      <h1 style="float: right;">Total:{{getTotal(orders.cartDetail.products) | currency:currencySymbol}}</h1>
+
+
+    </div>
+  </mat-card>
+
+</div>
+
+
+
+
+<div *ngIf="!toggle">
+  <img style="margin-left: 350px; margin-top: 10px; height: 500px; border-radius: 8px;"
+    src="https://cdn.dribbble.com/users/776386/screenshots/2677382/empty-order-history---dribbble.jpg" alt="">
+  <h1 style="text-align: center;">You Have not Placed Any Orders yet</h1>
+  <button style="margin-left: 630px;" mat-raised-button color="accent" routerLink="/cart">Go To Cart</button>
+</div>

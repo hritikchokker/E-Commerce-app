@@ -1,0 +1,60 @@
+.product-card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  max-width: 300px;
+  margin: auto;
+  text-align: center;
+  font-family: arial;
+}
+
+.peoduct-card:hover {
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+}
+
+.card button {
+  border: none;
+  border-radius: 2rem;
+  outline: 0;
+  padding: 12px;
+  color: white;
+  background-color: #000;
+  text-align: center;
+  cursor: pointer;
+  width: 100%;
+  font-size: 18px;
+}
+
+.card button:hover {
+  opacity: 0.7;
+}
+
+/* Responsive columns */
+@media screen and (max-width: 600px) {
+  .column {
+    width: 100%;
+    display: block;
+    margin-bottom: 20px;
+  }
+}
+
+/* Style the counter cards */
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  padding: 16px;
+  text-align: center;
+  // height: 300px;
+  background-color: #f1f1f1;
+}
+
+.card:hover {
+  border-radius: 2.3rem;
+  border: 3px solid rgb(102, 88, 88);
+  transform: scale(1.06);
+  transition: all .3s;
+}
+
+/* Float four columns side by side */
+.column {
+  float: left;
+  width: 100%;
+  padding: 0 10px;
+}
